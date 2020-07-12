@@ -1,0 +1,13 @@
+"use strict";
+exports.__esModule = true;
+var express_1 = require("express");
+var PointsController_1 = require("./controllers/PointsController");
+var ItemsController_1 = require("./controllers/ItemsController");
+var routes = express_1["default"].Router();
+var pointsController = new PointsController_1["default"]();
+var itemsController = new ItemsController_1["default"]();
+routes.get('/items', itemsController.index);
+routes.post('/points', pointsController.create);
+routes.get('/points', pointsController.index);
+routes.get('/points/:id', pointsController.show);
+exports["default"] = routes;
